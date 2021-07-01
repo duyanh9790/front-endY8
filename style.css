@@ -61,7 +61,7 @@ header {
 
 .input-search {
     height: 25px;
-    max-width: 300px;
+    width: 320px;
     outline: none;
     font-weight: bold;
 }
