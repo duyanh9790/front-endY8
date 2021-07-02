@@ -34,6 +34,10 @@ body {
     color :black;
 }
 
+
+/** Header **/
+
+
 header {
     position: fixed;
     top: 0px;
@@ -49,43 +53,96 @@ header {
     border-bottom: 1px solid #e6dede;
 }
 
+header > img {
+    margin-right: 10px;
+    height: 24px;
+    width: auto;
+}
+
+header > img:hover {
+    cursor: pointer;
+}
+
 .select-game-video a {
     margin: 3px 0px;
     display: block;
-    font-size: 13px;
+    font-size: 12px;
+    color: rgb(155, 148, 148); 
+    font-weight: bold;
+    transition: color ease-in 0.2s;
+    will-change: color;
+}
+
+.select-game-video a:hover {
+    color: black;
 }
 
 .select-game-video a.active {
     color: red;
 }
 
-.input-search {
-    height: 25px;
-    width: 320px;
+.header-search-input button {
+    border: none;
+    color: rgb(168, 162, 162);
+    margin-left: 13px;
+}
+
+.header-search-input button:hover {
+    cursor: pointer;
+}
+
+.header-search-input .input-search {
+    display: inline-block;
+    height: 34px;
+    width: 300px;
     outline: none;
     font-weight: bold;
+    border: none;
 }
 
-.header-arrow-select a {
-    display: block;
-    color: black;
+.search-videos {
+    display: none;
 }
 
-.header-arrow-select:hover a {
-    color: red;
-}
-.header-arrow-select:hover span {
-    color: red;
+.new-games , .categories {
+    position: relative;
 }
 
-
-.header-arrow-select a {
+.new-games a , .categories a {
+    display: inline-block;
+    color: rgb(77, 70, 70);
     font-weight: bold;
+    transition: color ease-in 0.15s;
+    will-change: color;
 }
 
-.header-arrow-select span {
+.new-games span , .categories span {
     font-size: 12px;
     color :#9e9898;
+    transition: color ease-in 0.15s;
+    will-change: color;
+}
+
+.new-games span.header-arrow-select ,
+.categories span.header-arrow-select {
+    position: absolute;
+    top: 45%;
+    right: -20px;
+    display: inline-block;
+    border: 5px solid transparent;
+    border-top-color: rgb(192, 189, 189);
+    transition: border-top-color ease-in 0.15s;
+    will-change: border-top-color;
+}
+
+.new-games:hover span.header-arrow-select ,
+.categories:hover span.header-arrow-select {
+    border-top-color: red;
+}
+
+.new-games:hover a , .new-games:hover span , 
+.categories:hover a , .categories:hover span{
+    color: red;
 }
 
 .register {
@@ -93,6 +150,8 @@ header {
     line-height: 42px;
     width: 76px;
     background-color: #da0707;
+    transition: background-color ease-in 0.15s;
+    will-change: background-color;
 }
 
 .register:hover {
@@ -102,6 +161,8 @@ header {
 .login {
     color: black;
     font-weight: bold;
+    transition: color ease-in 0.1s;
+    will-change: color;
 }
 
 .login:hover {
@@ -119,19 +180,14 @@ header {
 
 .icon-global {
     font-size: 18px;
+    transition: color ease-in 1s;
+    will-change: color;
 }
 
 .icon-user:hover {
     cursor: pointer;
     color: red;
 }
-
-.icon-global:hover {
-    cursor: pointer;
-}
-
-
-
 
 .btn-small1 {
     height: 40px;
@@ -196,25 +252,22 @@ header {
     display: inline-block;
 }
 
-
-
-.all-categories a {
-    color: rgb(26, 25, 25);
-    line-height: 22px;
-    font-size: 14px;
-    font-weight: bold;
-    position: relative;
-    top: -10px;
-    left: 10px;
+.all-categories:hover a {
+    color: black;
 }
 
-
-.categorie-games li   {
-    box-shadow: 0px 2px 5px rgba(0 ,0 ,0 ,0.3);
+.categorie-games li {
     display: inline-block;
+    box-shadow: 0px 2px 5px rgba(0 ,0 ,0 ,0.3);
     margin-right: 8px;
+    transition: transform ease-in 0.2s;
+    will-change: transform ;
 }
 
+.categorie-games li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 23px rgba(0 ,0 ,0 ,0.3);
+}
 
 .categorie-games  li  a  {
     display: block;
@@ -226,15 +279,30 @@ header {
     font-size: 10px;
 }
 
-.game-types li {
+.all-categories a {
+    color: rgb(77, 70, 70);
+    line-height: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+    left: 10px;
+}
+
+.game-types ul li {
     display: inline-block;
     padding: 4px 10px;
+    margin: 0px 2px;
     margin-top: 12px;
     border: 1px solid transparent;
+    transition: transform ease-in 0.2s;
+    will-change: transform;
 }
 
 .game-types li:hover {
-    
+    border-color: rgba(221, 215, 215,0.8);
+    transform: translateY(-2px);
+    border-radius: 14px;
 }
 
 .game-types li a {
@@ -318,12 +386,21 @@ header {
     
 }
 
+.game-types li:last-child  {
+    border: none;
+    transform: none;
+}
+
 .game-types li:last-child a {
     position: relative;
     top: -12px;
     margin-left: 5px;
-    color: rgb(26, 25, 25);
+    color: rgb(77, 70, 70);
     font-size: 14px;
+}
+
+.game-types li:last-child:hover a {
+    color: black;
 }
 
 .top-searchs li {
@@ -337,6 +414,11 @@ header {
     color: rgb(107, 103, 103);
     font-size: 13px;
     font-weight: bold;
+}
+
+.top-searchs li:first-child , .top-searchs li:nth-child(2) {
+    border: none;
+    transform: none;
 }
 
 .top-searchs li:first-child {
@@ -354,30 +436,41 @@ header {
     width: auto;
 }
 
-.top-searchs li:nth-child(2)::after {
-    content: "";
+.top-searchs li.your-country span {
     display: block;
     height: 0px;
     width: 0px;
-    border: 5px solid transparent;
-    border-top: 5px solid rgb(192, 189, 189);
+    border: 4px solid transparent;
+    border-top: 4px solid rgb(192, 189, 189);
     position: relative;
     bottom: 9px;
     left: 30px;
 } 
 
+.top-searchs .your-country:hover span {
+    border-top-color: red;
+} 
+
 .top-searchs li:last-child a {
     position: relative;
     top: 3px;
-    color: rgb(26, 25, 25);
+    color: rgb(77, 70, 70);
 }
+
+.top-searchs li:last-child:hover a {
+    color: black;
+}
+
+
+/** Main Content **/
+
 
 .container {
     padding: 10px 45px;
 }
 
 .container h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin: 18px 0px 10px 0px;
 }
 
@@ -394,11 +487,13 @@ header {
 
 .game {
     margin-bottom: 16px;
+    transition: box-shadow ease-in 0.16s;
+    will-change: box-shadow;
 }
 
 .game:hover {
     cursor: pointer;
-    box-shadow: 0px 4.5px 0px rgb(228, 220, 220);
+    box-shadow: 0px 6px 12px rgb(197, 190, 190);
 }
 
 .game div {
@@ -464,10 +559,12 @@ header {
 }
 
 .select-pages {
-    margin: 20px 350px ;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .select-pages ul {
+    display: inline-block;
     font-size: 0px;
 }
 
@@ -477,7 +574,17 @@ header {
     color: rgb(94, 88, 88);
     font-size: 14px;
     font-weight: bold;
-    background-color: rgba(224, 212, 212, 0.55);
+    background-color: rgba(229,229,229,0.96);
+}
+
+.select-pages ul li:nth-child(2) {
+    border-top-left-radius: 40%;
+    border-bottom-left-radius: 40%;
+}
+
+.select-pages ul li:nth-child(10) {
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
 }
 
 .select-pages ul li:hover {
@@ -496,10 +603,22 @@ header {
     border-radius: 12px;
 }
 
-.select-pages ul li .arrow {
+.select-pages .arrow i {
     font-size: 15px;
     height: 10px;
     width: 10px;
+}
+
+.select-pages .arrow {
+    padding: 8px 10px;
+    margin: 0px 3px;
+    border: 1px solid rgba(250, 248, 248, 0.5);
+    border-radius: 40%;
+}
+
+.select-pages .arrow:hover {
+    cursor: pointer;
+    color: black;
 }
 
 .y8-info {
@@ -560,19 +679,27 @@ footer {
     margin-top: 58px;
 }
 
-footer ul li {
-    line-height: 24px;
-    color: rgb(139, 137, 137);
+footer ul li p.copyright {
+    font-size: 11px;
+    line-height: 14px;
+    color: rgb(143, 132, 132);
 }
 
 footer ul h3 {
     text-transform: uppercase;
     font-weight: bold;
     color : black;
+    font-size: 15px;
+    margin-bottom: 7px;
 }
 
 footer h1 img {
     height: 28px;
+    margin-bottom: 5px;
+}
+
+footer h1 img:hover {
+    cursor: pointer;
 }
 
 footer > ul {
@@ -582,16 +709,6 @@ footer > ul {
 footer > ul > li {
     width : calc((70% - 82px)/5);
  }
-
-footer > ul >li:first-child {
-
-}
-
-footer > ul p {
-    font-size: 12px;
-    line-height: 14px;
-    color: rgb(167, 155, 155);
-}
 
 footer ul li i {
     font-size: 20px;
@@ -606,13 +723,27 @@ footer ul li i:hover {
 }
 
 .img-robot {
-    height: 211px;
+    height: 212px;
     display: inline-block;
     position: relative;
     float: right;
     bottom: 156px;
 }
 
+.y8-games li a , .update li a , .company li a {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 26px;
+    color: #999;
+    transition: color ease-in 0.2s;
+    will-change: color;
+}
 
+.y8-games li:hover a,
+.update li:hover a,
+.company li:hover a {
+    cursor: pointer;
+    color: #333;
+}
 
 
